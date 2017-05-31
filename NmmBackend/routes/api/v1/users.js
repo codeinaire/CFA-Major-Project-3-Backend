@@ -8,12 +8,12 @@ const User = require('../../../models/Users');
 
 router.get('/', userController.getUsers);
 
-router.post('/', userController.apiCreateUser);
+router.post('/', userController.createUser);
 
-router.get('/:user_id', userController.apiGetUser);
+router.get('/:user_id', userController.getUser);
 
-router.put('/:user_id', userController.apiUpdateUser);
+router.put('/:user_id', userController.updateUser);
 
-router.delete('/:user_id', userController.apiDeleteUser);
+router.delete('/:user_id', userController.deleteUser);
 
 module.exports = router;
