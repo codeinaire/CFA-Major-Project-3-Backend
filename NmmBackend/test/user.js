@@ -12,11 +12,11 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Users', () => {
-  beforeEach((done) => {
-    User.remove({}, (err) => {
-      done();
-    });
-  });
+  // beforeEach((done) => {
+  //   User.remove({}, (err) => {
+  //     done();
+  //   });
+  // });
 /*
   * Test the /GET route
   */
@@ -25,6 +25,7 @@ describe('Users', () => {
       chai.request(server)
           .get('/api/user')
           .end((err, res) => {
+            console.log('this is res', res.body);
             res.should.have.status(200);
             res.body.should.be.a('array');
             res.body.length.should.be.eql(0);
