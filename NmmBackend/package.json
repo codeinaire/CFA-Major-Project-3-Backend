@@ -1,0 +1,36 @@
+{
+  "name": "nmmbackend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "SET NODE_ENV=dev && node ./bin/www",
+    "watch": "SET NODE_ENV=dev && nodemon ./bin/www",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "dotenv": "^4.0.0",
+    "express": "~4.15.2",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.9.8",
+    "morgan": "~1.8.1",
+    "nodemon": "^1.11.0",
+    "pug": "~2.0.0-beta11",
+    "serve-favicon": "~2.4.2",
+    "config": "^1.20.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "jest": "^20.0.1",
+    "mocha": "^3.4.1"
+  }
+}
