@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "SET NODE_ENV=dev && node ./bin/www",
-    "watch": "SET NODE_ENV=dev && nodemon ./bin/www",
+    "start": "NODE_ENV=dev && node ./bin/www",
+    "watch": "NODE_ENV=dev && nodemon ./bin/www",
     "test": "mocha"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "config": "^1.20.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "dotenv": "^4.0.0",
@@ -16,10 +17,10 @@
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.9.8",
     "morgan": "~1.8.1",
+    "node-dev-env": "^2.1.0",
     "nodemon": "^1.11.0",
     "pug": "~2.0.0-beta11",
-    "serve-favicon": "~2.4.2",
-    "config": "^1.20.1"
+    "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
