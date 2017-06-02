@@ -12,11 +12,11 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Users', () => {
-  // beforeEach((done) => {
-  //   User.remove({}, (err) => {
-  //     done();
-  //   });
-  // });
+  beforeEach((done) => {
+    User.remove({}, (err) => {
+      done();
+    });
+  });
 /*
   * Test the /GET route
   */

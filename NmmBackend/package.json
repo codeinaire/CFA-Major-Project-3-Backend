@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "set NODE_ENV=dev && node ./bin/www",
-    "watch": "set NODE_ENV=dev && nodemon ./bin/www",
-    "testing": "set NODE_ENV=test && nodemon ./bin/www",
-    "test": "mocha"
+    "start": "NODE_ENV=dev&& node ./bin/www",
+    "watch": "NODE_ENV=dev&& nodemon ./bin/www",
+    "testing": "NODE_ENV=test&& node ./bin/www",
+    "test": "NODE_ENV=test&& mocha"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
