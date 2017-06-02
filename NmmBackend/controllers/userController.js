@@ -4,8 +4,8 @@ const User = require('../models/Users');
 
 exports.getUsers = (req, res) => {
   User.find()
-    .then((Users) => {
-      res.json(Users);
+    .then((users) => {
+      res.json(users);
     });
 };
 

@@ -19,7 +19,11 @@ const { connection: db } = mongoose;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('Connected to the No Meat May database');
+  if(config.util.getEnv('NODE_ENV') === 'test') {
+    console.log('Connected to the local No Meat May database');
+  } else {
+    console.log('Connected to the remote No Meat May database');
+  };
 });
 
 if(config.util.getEnv('NODE_ENV') !== 'test') {

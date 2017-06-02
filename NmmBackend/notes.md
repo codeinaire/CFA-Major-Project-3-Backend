@@ -17,3 +17,11 @@ Jamie went through an example of a side project that he is working on about crea
 ## Use process.env.variable in json
 
 https://stackoverflow.com/questions/36962601/node-js-how-to-use-environment-variables-in-json-file
+
+
+## mlab database
+mongodb://johncodeinaire:freethecows@ds157621.mlab.com:57621/nomeatmay
+
+## for facebook auth
+
+https://stackoverflow.com/questions/34514391/correct-way-to-call-passport-js-function-from-react-component

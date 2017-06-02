@@ -4,15 +4,10 @@ const { Schema } = mongoose;
 
 // schema for the db
 const userSchema = new Schema({
-  firstName: {
+  fullName: {
     type: String,
     trim: true,
     required: 'Please enter first name!',
-  },
-  lastName: {
-    type: String,
-    trim: true,
-    required: 'Please enter last name!',
   },
   emailAddress: {
     type: String,
