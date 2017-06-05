@@ -10,12 +10,10 @@
   },
   "dependencies": {
     "bcryptjs": "^1.0.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "validator": "^7.0.0",
     "body-parser": "~1.17.1",
     "config": "^1.20.1",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.3",
     "debug": "~2.6.3",
     "dotenv": "^4.0.0",
     "express": "~4.15.2",
@@ -24,8 +22,11 @@
     "morgan": "~1.8.1",
     "node-dev-env": "^2.1.0",
     "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "pug": "~2.0.0-beta11",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "validator": "^7.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

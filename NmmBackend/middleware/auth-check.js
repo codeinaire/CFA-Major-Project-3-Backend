@@ -1,14 +1,17 @@
 const jwt = require('jsonwebtoken');
 // may have to change this
-const User = require('mongoose').model('User');
-const config = require('config');
+// const User = require('mongoose').model('User');
+const mongoose = require('mongoose');
+const User = require('../models/Users');
 
+const config = require('config');
 
 /**
  *  The Auth Checker middleware function.
  */
 module.exports = (req, res, next) => {
   if (!req.headers.authorization) {
+    console.log("not authorized");
     return res.status(401).end();
   }
 
