@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -14,19 +14,20 @@ const app = express();
 // database stuff
 const mongoose = require('mongoose');
 const config = require('config');
+
 mongoose.connect(config.DBHost);
 const { connection: db } = mongoose;
 // DB check and error messages
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  if(config.util.getEnv('NODE_ENV') === 'test') {
+  if (config.util.getEnv('NODE_ENV') === 'test') {
     console.log('Connected to the local No Meat May database');
   } else {
     console.log('Connected to the remote No Meat May database');
-  };
+  }
 });
 // NOTE logger change, MAY NOT NEED THIS
-if(config.util.getEnv('NODE_ENV') !== 'test') {
+if (config.util.getEnv('NODE_ENV') !== 'test') {
   app.use(logger('dev'));
 }
 
@@ -49,10 +50,17 @@ passport.use('local-signup', localSignupStrategy);
 
 // pass the authenticaion checker middleware
 const authCheckMiddleware = require('./middleware/auth-check');
+
 app.use('/api', authCheckMiddleware);
 
-app.use('/', index);
-app.use('/api/user', users);
+// routes
+const authRoutes = require('./routes/auth');
+const apiRoutes = require('./routes/api');
+app.use('/auth', authRoutes);
+app.use('/api', apiRoutes);
+
+// app.use('/', index);
+// app.use('/api/user', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
