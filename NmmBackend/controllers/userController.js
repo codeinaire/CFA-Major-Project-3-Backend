@@ -12,8 +12,7 @@ exports.getUsers = (req, res) => {
 exports.createUser = (req, res) => {
   const userSave = new User();
   const UserQuery = req.query;
-  userSave.firstName = UserQuery.firstName;
-  userSave.lastName = UserQuery.lastName;
+  userSave.fullName = UserQuery.fullName;
   userSave.emailAddress = UserQuery.emailAddress;
   userSave.location = UserQuery.location;
   userSave.save()
