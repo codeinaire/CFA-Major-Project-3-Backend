@@ -1,9 +1,13 @@
-const mongoose = require('mongoose')
-const User = require('../models/Users');
+// old way
+// const mongoose = require('mongoose')
+// const User = require('../models/Users');
+// new way
+const User = require('mongoose').model('User');
 const PassportLocalStrategy = require('passport-local').Strategy;
 
 /**
  * Return the Passport Local Strategy object.
+ NOTE I think this is where the user is saved into the database.
  */
 module.exports = new PassportLocalStrategy({
   usernameField: 'email',
@@ -14,7 +18,9 @@ module.exports = new PassportLocalStrategy({
   const userData = {
     email: email.trim(),
     password: password.trim(),
-    name: req.body.name.trim()
+    fullName: req.body.name.trim(),
+    location: req.body.location.trim(),
+    motivation: req.body.motivation,
   };
 
   const newUser = new User(userData);

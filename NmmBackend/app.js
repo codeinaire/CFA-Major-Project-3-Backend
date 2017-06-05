@@ -44,9 +44,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // load passport strategies
 const localSignupStrategy = require('./passport/local-signup');
-// const localLoginStrategy = require('./passport/local-login');
+const localLoginStrategy = require('./passport/local-login');
 passport.use('local-signup', localSignupStrategy);
-// passport.use('local-login', localLoginStrategy);
+passport.use('local-login', localLoginStrategy);
 
 // pass the authenticaion checker middleware
 const authCheckMiddleware = require('./middleware/auth-check');

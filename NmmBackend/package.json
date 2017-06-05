@@ -9,7 +9,7 @@
     "test": "NODE_ENV=test&& mocha"
   },
   "dependencies": {
-    "bcrypt": "^1.0.1",
+    "bcryptjs": "^1.0.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "validator": "^7.0.0",
