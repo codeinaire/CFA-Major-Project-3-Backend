@@ -4,19 +4,19 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const index = require('./routes/index');
 const users = require('./routes/api/v1/users');
 
 const app = express();
 
-
 // database stuff
 const mongoose = require('mongoose');
 const config = require('config');
 mongoose.connect(config.DBHost);
 const { connection: db } = mongoose;
-
+// DB check and error messages
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   if(config.util.getEnv('NODE_ENV') === 'test') {
@@ -25,7 +25,7 @@ db.once('open', () => {
     console.log('Connected to the remote No Meat May database');
   };
 });
-
+// NOTE logger change, MAY NOT NEED THIS
 if(config.util.getEnv('NODE_ENV') !== 'test') {
   app.use(logger('dev'));
 }
@@ -40,6 +40,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// load passport strategies
+const localSignupStrategy = require('./passport/local-signup');
+// const localLoginStrategy = require('./passport/local-login');
+passport.use('local-signup', localSignupStrategy);
+// passport.use('local-login', localLoginStrategy);
+
+// pass the authenticaion checker middleware
+const authCheckMiddleware = require('./middleware/auth-check');
+app.use('/api', authCheckMiddleware);
 
 app.use('/', index);
 app.use('/api/user', users);

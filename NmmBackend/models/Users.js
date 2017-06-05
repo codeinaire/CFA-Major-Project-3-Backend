@@ -12,8 +12,10 @@ const userSchema = new Schema({
   emailAddress: {
     type: String,
     trim: true,
+    unique: true,
     required: 'Please enter email address!',
   },
+
   location: {
     type: String,
     trim: true,
