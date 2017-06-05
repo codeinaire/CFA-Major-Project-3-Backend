@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 // schema for the db
 const UserSchema = new mongoose.Schema({
-  fullName: {
+  name: {
     type: String,
     trim: true,
     required: 'Please enter first name!',
@@ -18,15 +18,15 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: 'Please enter a password!',
   },
-  location: {
-    type: String,
-    trim: true,
-    required: 'Please enter your city and state!',
-  },
-  motivation: {
-    type: Number,
-    required: 'Select a motivation to best personalise your experince.',
-  },
+  // location: {
+  //   type: String,
+  //   trim: true,
+  //   required: 'Please enter your city and state!',
+  // },
+  // motivation: {
+  //   type: Number,
+  //   required: 'Select a motivation to best personalise your experince.',
+  // },
   bio: {
     type: String,
   },
