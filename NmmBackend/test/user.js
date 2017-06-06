@@ -7,7 +7,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 // peter called this app instead of server.
 const server = require('../app');
-server.listen(3000);
+// server.listen(3000);
 
 const should = chai.should();
 
