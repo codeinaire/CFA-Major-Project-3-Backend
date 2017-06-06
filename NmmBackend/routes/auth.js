@@ -40,20 +40,17 @@ function validateSignupForm(payload) {
   return {
     success: isFormValid,
     message,
-    errors
+    errors,
   };
 }
 
 router.post('/signup', (req, res, next) => {
-  console.log('Request body: ', req.body);
   const validationResult = validateSignupForm(req.body);
-  console.log('validate results:', validationResult);
   if (!validationResult.success) {
-    console.log("results validated false");
     return res.status(400).json({
       success: false,
       message: validationResult.message,
-      errors: validationResult.errors
+      errors: validationResult.errors,
     });
   }
 
@@ -68,20 +65,20 @@ router.post('/signup', (req, res, next) => {
           success: false,
           message: 'Check the form for errors.',
           errors: {
-            email: 'This email is already taken.'
+            email: 'This email is already taken.',
           }
         });
       }
 
       return res.status(400).json({
         success: false,
-        message: 'Could not process the form.'
+        message: 'Could not process the form.',
       });
     }
 
     return res.status(200).json({
       success: true,
-      message: 'You have successfully signed up! Now you should be able to log in.'
+      message: 'You have successfully signed up! Now you should be able to log in.',
     });
   })(req, res, next);
 });
@@ -115,7 +112,7 @@ function validateLoginForm(payload) {
   return {
     success: isFormValid,
     message,
-    errors
+    errors,
   };
 }
 
@@ -125,7 +122,7 @@ router.post('/login', (req, res, next) => {
     return res.status(400).json({
       success: false,
       message: validationResult.message,
-      errors: validationResult.errors
+      errors: validationResult.errors,
     });
   }
 
@@ -135,13 +132,13 @@ router.post('/login', (req, res, next) => {
       if (err.name === 'IncorrectCredentialsError') {
         return res.status(400).json({
           success: false,
-          message: err.message
+          message: err.message,
         });
       }
 
       return res.status(400).json({
         success: false,
-        message: 'Could not process the form.'
+        message: 'Could not process the form.',
       });
     }
 
@@ -150,7 +147,7 @@ router.post('/login', (req, res, next) => {
       success: true,
       message: 'You have successfully logged in!',
       token,
-      user: userData
+      user: userData,
     });
   })(req, res, next);
 });
