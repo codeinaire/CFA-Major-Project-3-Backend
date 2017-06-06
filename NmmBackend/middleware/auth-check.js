@@ -6,12 +6,10 @@ const User = require('../models/Users');
 
 const config = require('config');
 
-/**
- *  The Auth Checker middleware function.
- */
+// The Auth Checker middleware function.
+
 module.exports = (req, res, next) => {
   if (!req.headers.authorization) {
-    console.log("not authorized");
     return res.status(401).end();
   }
 
@@ -31,7 +29,7 @@ module.exports = (req, res, next) => {
         return res.status(401).end();
       }
       // pass user details onto next route
-      req.user = user
+      req.user = user;
       return next();
     });
   });
