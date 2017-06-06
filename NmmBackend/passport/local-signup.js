@@ -13,7 +13,7 @@ module.exports = new PassportLocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
   session: false,
-  passReqToCallback: true
+  passReqToCallback: true,
 }, (req, email, password, done) => {
   const userData = {
     email: email.trim(),
