@@ -1,11 +1,13 @@
 process.env.NODE_ENV = 'test';
-
+// process.nev.<CONFIG_FILE>="name of db"
 const mongoose = require('mongoose');
 const User = require('../models/Users');
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+// peter called this app instead of server.
 const server = require('../app');
+server.listen(3000);
 
 const should = chai.should();
 
@@ -34,3 +36,13 @@ describe('Users', () => {
     });
   });
 });
+
+// const should = chai.should().expect;
+//
+// // change it to false to see if the test function is actually working. This is more integration testing than unit testing.
+// /
+// describe ('simple test', function() {
+//   it ('always true', function() {
+//     expect(true).to.be.true;
+//   })
+// })

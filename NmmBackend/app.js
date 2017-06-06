@@ -5,7 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-var cors = require('cors')
+const cors = require('cors');
 const index = require('./routes/index');
 const users = require('./routes/api/v1/users');
 
@@ -21,9 +21,9 @@ const { connection: db } = mongoose;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   if (config.util.getEnv('NODE_ENV') === 'test') {
-    console.log('Connected to the local No Meat May database');
+    console.log('Connected to the local No Meat May database', db);
   } else {
-    console.log('Connected to the remote No Meat May database');
+    console.log('Connected to the remote No Meat May database', db);
   }
 });
 // NOTE logger change, MAY NOT NEED THIS
@@ -37,7 +37,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -57,6 +57,7 @@ app.use('/api', authCheckMiddleware);
 // routes
 const authRoutes = require('./routes/auth');
 const apiRoutes = require('./routes/api');
+
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 

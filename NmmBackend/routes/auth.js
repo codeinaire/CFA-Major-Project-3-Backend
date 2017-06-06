@@ -13,6 +13,7 @@ const router = new express.Router();
  *                   errors tips, and a global message for the whole form.
  */
 function validateSignupForm(payload) {
+  console.log("payload - auth backend: ", payload);
   const errors = {};
   let isFormValid = true;
   let message = '';
@@ -44,8 +45,11 @@ function validateSignupForm(payload) {
 }
 
 router.post('/signup', (req, res, next) => {
+  console.log('Request body: ', req.body);
   const validationResult = validateSignupForm(req.body);
+  console.log('validate results:', validationResult);
   if (!validationResult.success) {
+    console.log("results validated false");
     return res.status(400).json({
       success: false,
       message: validationResult.message,
@@ -59,6 +63,7 @@ router.post('/signup', (req, res, next) => {
       if (err.name === 'MongoError' && err.code === 11000) {
         // the 11000 Mongo code is for a duplication email error
         // the 409 HTTP status code is for conflict error
+        console.log('error code:', err);
         return res.status(409).json({
           success: false,
           message: 'Check the form for errors.',
