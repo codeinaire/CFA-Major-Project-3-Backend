@@ -17,7 +17,7 @@ module.exports = new PassportLocalStrategy({
 }, (req, email, password, done) => {
   const userData = {
     email: email.trim(),
-    password: password.trim()
+    password: password.trim(),
   };
 
   // find a user by email address
@@ -43,7 +43,7 @@ module.exports = new PassportLocalStrategy({
       }
 
       const payload = {
-        sub: user._id
+        sub: user._id,
       };
 
       // create a token string
@@ -51,7 +51,7 @@ module.exports = new PassportLocalStrategy({
       const data = {
         name: user.name,
         email: user.email,
-        id: user._id
+        id: user._id,
       };
 
       return done(null, token, data);
