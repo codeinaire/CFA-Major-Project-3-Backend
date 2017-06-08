@@ -17,7 +17,6 @@ Note - client's identities have been concealled for privacy reasons.
 7. [Technical Overview](#technical-overview)
 8. [Project Work Breakdown](#project-work-breakdown)
 9. [IT Support Plans](#it-support-plans)
-10. [
 
 
 ## About the Project
@@ -77,9 +76,9 @@ Scope: To design, develop, and produce a proof of concept for a mobile responsiv
  
 ## Approval of Project Charter:
  
-Project Lead: John Stewart 28/5/17
-Project Client 1: signed off on 29/5/17
-Project Client 2:  signed off on 29/5/17
+- Project Lead: John Stewart 28/5/17
+- Project Client 1: signed off on 29/5/17
+- Project Client 2:  signed off on 29/5/17
 
 [Return to overview](#overview)
 
@@ -150,15 +149,77 @@ This is a link to the workflow diagram board for closer examination: http://tiny
 
 Wireframe and workflow diagram.
 
-![alt tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/No%20Meat%20May%20UX%20Wireframe.svg)
+![alt tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/No%20Meat%20May%20UX%20Wireframe.jpg)
 
+Wireframe of homepage.
 
+![alt tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-homepagewire.png)
 
-###
+Prototype homepage.
+
+![alt tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-frontpage.png)
+
+### Entity relationship diagram
+
+The basic project required a very simple database model that was mainly composed of the user information.
+
+ERD
+
+![alt_tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-ERD.png)
+
 
 ## Technical Overview
  
 The follow section describes the software components that will be used for the No Meat May project. The project must be completed in Javascript and all the technical components used are based in the javascript language.
+
+#### Installation
+
+You can access the application through heroku: https://nomeatmayfront.herokuapp.com/
+
+Or you can download the project to the local drive and run it from there:
+
+Clone the server side repo:
+
+```
+$ git clone https://github.com/codeinaire/CFA-Major-Project-3-Backend
+```
+
+Clone the client side repo:
+```
+$ git clone https://github.com/codeinaire/CFA-Major-Project-3-frontend
+```
+
+Change into the project directory, and install the dependencies:
+```
+$ npm install
+```
+
+If you have mongodb installed start it your local machine:
+```
+$ mongod
+```
+Otherwise create an database online database on an online service such as mLab. The database will be accessed with the backend repo. Create a `.env` file in CFA-Major-Project-3-Backend and fill in the following keys with your database values and a key for your JWT without quotes:
+
+```
+DBDEV=<database value here>
+JWTSECRET=<secret phrase here>
+```
+Run the backend server runs on localhost:3001 by running:
+
+```
+$ npm watch
+```
+The backend is accessed through the frontend react application, however, there's a little bit of configuration required to get it to work on the localhost. Navigate to `SignUpPage.jsx`, `LoginPage.jsx`, and `ProfilePage.jsx` and replace `https://nomeatmay.herokuapp.com` with `https://localhost:3001/` to get the front end to do api calls to the backend.
+
+Navigate to the directory of CFA-Major-Project-3-frontend and to start the server run:
+```
+$ npm start
+```
+Access it through your browser:
+```
+http://localhost:3000
+```
+Have fun!
 
 ### Technologies and Frameworks
  
@@ -169,6 +230,26 @@ Database: MongoDB hosted by mlab - this is an industry standard online database 
 Client side: React.js - this is appropriate for creating client side pages that respond in an asynchronous manner. This is very appropriate for the dashboard that will have many components that need to refresh at different points which makes it so the whole page doesn’t have to refresh. React will be used for: sign up page, sign in page, profile page, and the dashboard.
  
 Sign-in and authentication: Passport.js - this is authentication middleware for Node.js. It is flexible and can be used to connect with the client side React.js and server side Node.js for secure user signup and login. It can also use strategies for social media sites such as Facebook, Google, Instagram, etc
+
+Github: This was used for version control, feature development, code storage, and project review:
+
+Github for the frontend reop.
+
+![alt_tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-github.png)
+
+Github for the backend repo.
+
+![alt_tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-github1.png)
+
+Code climate: this is a code quality tool that picks up on any issues within the code to be fixed. I mainly used it when I was merging a branch to the master to check the code quality of the branch. If there were issues I could fix them and then merge once they were confirmed fixed.
+
+Code climate working together with Github.
+
+![alt_tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-codetools.png)
+
+Code climate repo analysis.
+
+![alt_tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project3-codequality1.png)
  
 ### System Testing
  
@@ -181,6 +262,13 @@ Due to the limited time and resources available there will be a minimum of syste
 - Is a user redirected to the profile form page and do the components render correctly.
 - Is a user able to fill in the form and send a post request to update their profile details. Will the form redirect the user to the profile page where they can check their current profile details.
 - Is the user able to select the link to the dashboard and will the dashboard render all the appropriate components.
+
+### Code Review
+
+A code review was provide by my fellow classmate Hyun and I also provided a review of his code using the Github pull and comment feature after we became collaborators on each other's projects.
+
+![alt_tag](https://github.com/codeinaire/CFA-Major-Project-3-Backend/blob/master/images/project2code-review.png)
+
  
 [Return to overview](#overview)
 
@@ -252,7 +340,10 @@ Value adding (40%): $33,009.
 ### Hand Over Activities
  
 Once the project is complete the project manager will guide the clients through the use of the website. A new database will be set up for the use with the website to store participants details. The application will be deployed to a server of their choice and the appropriate environmental variables will be configured for the website. 
- 
+
+### Maintenance and Support
+
+I've decided to continue to work with my clients to complete this project 
  
  
 Approval:
