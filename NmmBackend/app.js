@@ -1,3 +1,4 @@
+require ('dotenv').config();
 const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
@@ -15,7 +16,7 @@ const app = express();
 const mongoose = require('mongoose');
 const config = require('config');
 
-mongoose.connect(config.DBHost);
+mongoose.connect(process.env.DBDEV);
 const { connection: db } = mongoose;
 // DB check and error messages
 db.on('error', console.error.bind(console, 'connection error:'));
