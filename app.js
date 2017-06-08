@@ -44,6 +44,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 // load passport strategies
 const localSignupStrategy = require('./passport/local-signup');
 const localLoginStrategy = require('./passport/local-login');
