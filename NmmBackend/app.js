@@ -46,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // load passport strategies
 const localSignupStrategy = require('./passport/local-signup');
 const localLoginStrategy = require('./passport/local-login');
+
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
 
@@ -61,18 +62,18 @@ const apiRoutes = require('./routes/api');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 
-// app.use('/', index);
-// app.use('/api/user', users);
+app.use('/', index);
+app.use('/api/user', users);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

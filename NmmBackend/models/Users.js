@@ -27,10 +27,14 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     required: 'Select a motivation to best personalise your experince.',
   },
+  username: {
+    type: String,
+    trim: true,
+  },
   bio: {
     type: String,
   },
-  personalQuote: {
+  motivationText: {
     type: String,
     trim: true,
   },
