@@ -17,6 +17,7 @@ Note - client's identities have been concealled for privacy reasons.
 7. [Technical Overview](#technical-overview)
 8. [Project Work Breakdown](#project-work-breakdown)
 9. [IT Support Plans](#it-support-plans)
+10. [Post Project Review](#post-project-review)
 
 
 ## About the Project
@@ -343,13 +344,15 @@ Once the project is complete the project manager will guide the clients through 
 
 ### Maintenance and Support
 
-I've decided to continue to work with my clients to complete this project 
- 
+I've decided to continue to work with my clients to complete this project. Post project I will provide maintenance and support for any issues up to a 3 months period in case there are any extra bugs that come up and need to be worked out.
  
 Approval:
  
-Project Lead: John Stewart 28/5/17
-Project Client 1:
-Project Client 2:
+Project Lead: John Stewart 9/6/17  
+Project Client 1: signed off on 9/6/17  
+Project Client 2: signed off on 9/6/17  
  
+## Post Project Review
+
+Unfortunately, the scope of the project wasn't able to be fulfilled in the allotted time period. However, a core feature was implemented - user authentication - which was/is one of the more difficult parts of the project. The project lead had never done user authentication before and it was a good learning experience. Moving forward the project manager is going to continue to liase with the clients to further build the project out and to set a schedule for the final product to be use to demonstrate a MVP. This will be used to seek further funding to build more advanced features.
 
